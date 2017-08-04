@@ -17,7 +17,8 @@ public class MiniSpriterMenuBar extends MenuBar {
 			new ActionsMenu(),
 			new ViewMenu(),
 			new SpriteSheetMenu(),
-			new ColorMenu()
+			new ColorMenu(),
+			new AnimateMenu()
 		);
 	}
 }
