@@ -1,6 +1,8 @@
 # MiniSpriter
 MiniSpriter is a spirte editor designed to work well with Minicraft.
 
+![MiniSpriter image](http://i.imgur.com/i8OrCXd.png)
+
 Features:
 1. Save and load image files in Minicraft's grayscale format.
 2. Save to, and load from, spritesheets or single sprite files.
