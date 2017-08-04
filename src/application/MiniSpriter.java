@@ -38,6 +38,7 @@ public class MiniSpriter {
 		
 		root = new BorderPane();
 		Scene scene = new Scene(root);
+		addKeyBinds();
 		
 		root.setCenter(new Group(new MiniSpriterCanvas(8, 8)));
 		root.setTop(new MiniSpriterMenuBar());
