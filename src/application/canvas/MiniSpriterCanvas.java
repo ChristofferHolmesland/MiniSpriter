@@ -231,6 +231,10 @@ public class MiniSpriterCanvas extends Canvas {
 		return rawPixelData[x][y];
 	}
 	
+	public int[][] getRawPixelData() {
+		return rawPixelData;
+	}
+	
 	/**
 	 * Returns the current zoom level.
 	 * @return Zoom level.
