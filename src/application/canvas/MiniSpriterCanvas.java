@@ -29,6 +29,8 @@ public class MiniSpriterCanvas extends Canvas {
 	private int minZoom = 1;
 	private int maxZoom = 90;
 	
+	private boolean drawing = false;
+	
 	private int[][] rawPixelData;
 	private ArrayList<int[][]> undoLog = new ArrayList<int[][]>();
 	
@@ -131,7 +133,7 @@ public class MiniSpriterCanvas extends Canvas {
 		this.setWidth(width * zoom);
 		this.setHeight(height * zoom);
 		
-		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		this.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent mouse) {
 				int x = (int) (mouse.getX() / zoom);
@@ -139,7 +141,27 @@ public class MiniSpriterCanvas extends Canvas {
 				addToUndoLog();
 				rawPixelData[x][y] = ColorUtilities.getCurrentColorIndex();
 				MiniSpriter.update();
+				drawing = true;
 			}
+		});
+		
+		this.setOnMouseDragged(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent mouse) {
+				if (drawing) {
+					int x = (int) (mouse.getX() / zoom);
+					int y = (int) (mouse.getY() / zoom);	
+					rawPixelData[x][y] = ColorUtilities.getCurrentColorIndex();
+					MiniSpriter.update();
+				}
+			}
+		});
+		
+		this.setOnMouseReleased(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent mouse) {
+				drawing = false;
+			}	
 		});
 		
 		drawPixelDataOnCanvas();
