@@ -215,11 +215,13 @@ public class FileCanvasHandler {
 	 */
 	public static void loadCanvasFromSpritesheet() {
 		SpriteSheet spritesheet = SpriteSheetManager.getSpriteSheetFromUser();
+		if (spritesheet == null) return;
+		
 		File file = spritesheet.getFile();
-		if (file == null)
-			return;
-
+		if (file == null) return;
+		
     	Rectangle2D position = selectSpriteFromSpritesheet(file);
+    	
     	if (position == null) return;
     	
     	try {
@@ -356,7 +358,7 @@ public class FileCanvasHandler {
 			yPosition.textProperty().addListener(new Picker());
 			
 		} catch (IOException e) {
-			
+			e.printStackTrace();
 		}
 	
 		dialog.setResultConverter(dialogButton -> {
