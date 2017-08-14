@@ -20,6 +20,7 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.util.Duration;
 
 public class AnimationDialog {	
@@ -35,6 +36,7 @@ public class AnimationDialog {
 		Dialog<Object> dialog = new Dialog<Object>();
 		dialog.setTitle("Animation");
 		dialog.setHeaderText("Choose speed (fps):");
+		dialog.initModality(Modality.NONE);
 		
 		ButtonType okButton = new ButtonType("Ok", ButtonData.OK_DONE);
 		dialog.getDialogPane().getButtonTypes().addAll(okButton);

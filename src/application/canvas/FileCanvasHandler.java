@@ -50,14 +50,14 @@ public class FileCanvasHandler {
         fileChooser.getExtensionFilters().add(extFilter);
        
         File file = fileChooser.showSaveDialog(MiniSpriter.primaryStage);
-         
+        
         if(file != null){
             try {
             	
             	MiniSpriterCanvas canvas = MiniSpriter.getMiniSpriterCanvas();
             	
-            	int w = (int)canvas.getWidth();
-            	int h = (int)canvas.getHeight();  	
+            	int w = (int)canvas.getWidth() / canvas.getZoom();
+            	int h = (int)canvas.getHeight() / canvas.getZoom();  	
                 WritableImage writableImage = new WritableImage(w, h);
                 
                 Canvas saveCanvas = new Canvas(w, h);
