@@ -299,8 +299,10 @@ public class FileCanvasHandler {
 	        		int rgb = spriteSheet.getRGB(x, y);
             		int colorIndex = redValueToColorIndex(rgb);
             		if (colorIndex == -1) {
+            			System.out.println(x + ", " + y);
             			Alert alert = new Alert(AlertType.ERROR);
             			alert.setHeaderText("This file is in the wrong format. Loading aborted.");
+            			alert.show();
             			return null;
             		}
             		
@@ -391,6 +393,7 @@ public class FileCanvasHandler {
 	private static int redValueToColorIndex(int rgb) {
 		int red = (rgb >> 16) & 0xFF;
 		
+		// Normal grayscales
 		if (red == 0) 
 			return 0;
 		else if (red == 81) 
@@ -399,10 +402,12 @@ public class FileCanvasHandler {
 			return 2;
 		else if (red == 255) 
 			return 3;
+		// Minicraft+ error correction:
 		else if (red == 107 || red == 214)
 			return 0;
-		else
-			return -1;
+		
+		System.out.println("Red value gives -1 index: " + red);
+		return 0;
 	}
 	
 }
