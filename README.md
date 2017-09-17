@@ -1,5 +1,5 @@
 # MiniSpriter
-MiniSpriter is a spirte editor designed to work well with Minicraft.
+MiniSpriter is a sprite editor designed to work well with Minicraft.
 
 ![MiniSpriter image](http://i.imgur.com/i8OrCXd.png)
 
